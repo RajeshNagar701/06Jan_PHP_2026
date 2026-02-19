@@ -2,16 +2,17 @@
 /* 
 operators
 
-Arithmetic operators    + - * / %   10/2=5   10%2=0
+Arithmetic operators    + - * / %   10/2=5   10%2=0 (Reminder)
 
-Assignment operators    =     += -= *= /=  %=   $a=10;  $a+=10  $a=$a+10    $a-=$b  $a=$a-$b
+Assignment operators    =     += -= *= /=  %=   $a=10;$b=20;  $a+=$b/$a=$a+$b = 20
 
-Comparison operators    == === > < >= <= !=
+Comparison operators    ==  > < >= <= !=   ===
 
 Increment/Decrement operators    ++    --  a=10 a++ echo 
 Logical operators   &&     ||     !      
 String operators    .    .=
 Conditional assignment operators   (cond)?'if':'else';
+
 Array operators 
 
 */
@@ -30,29 +31,16 @@ echo $sum;
 
 
 /*
-$y = 20;
+$y=20;
 $x=10;  
 
 
-$x += $y;     // $x=$x-$y
+$x += $y;     // $x=$x+$y
 
-echo $x;
+echo $x;  // 30
 
 */
 
-
-//increement & decrimrent  ++ --
-
-/*
-$a=5;
-$a++;
-$a++;
-echo $a."<br>";
-
-$b=10;
-$b--;
-echo $b."<br>";
-*/
 
 
 
@@ -62,7 +50,7 @@ echo $b."<br>";
 $a=100;
 $b="100";
 
-if($a==$b) // check value equl to 
+if($a>$b) // check value equl to 
 {
 	echo "true";
 }
@@ -84,21 +72,35 @@ else
 {
 	echo "False";
 }
-
 */
 
 
 
+//increement & decrimrent  ++ --   $a=10  $a++  $a+1
+
+
+$a=5;
+$a++;
+$a++;
+echo $a."<br>";
+
+$b=10;
+$b--;
+echo $b."<br>";
 
 
 
-//logical operators   &&  ||   !
-/*
+
+
+
+
+//logical operators   &&(and)    ||(or)    !(not)
+
 $a=5;
 $b=10;
 $c=2;
 
-if(!($a<$b && $a<$c))   // !($a>$b)
+if($a<$b && $a<$c)   // !($a>$b)
 {
 	echo "both condition true";
 }
@@ -107,7 +109,7 @@ else
 	echo "Not Condition true";
 }
 
-*/
+
 
 
 
@@ -117,11 +119,11 @@ else
 $a="Raj";
 echo "Hello" . $a . "<br>";
 
-$name="raj";
-$name.=" nagar";
-$name.=" n";
-echo $name;
 
+$name="Raj";
+$name.=" Nagar";
+$name.=" N"
+echo $name;
 
 
 // conditional operators / turnory 
