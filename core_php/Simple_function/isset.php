@@ -14,8 +14,6 @@ else
 }
 */	
 ?>
-
-
 <form>
 	<input type="submit" name="submit" value="resgister">
 </form>

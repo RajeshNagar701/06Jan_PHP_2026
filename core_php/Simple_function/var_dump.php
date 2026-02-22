@@ -1,6 +1,6 @@
 <?php
 // find var data type 
-// PHP lOOSLY TYPE LAG
+// PHP lOOSLY TYPE LAG WHY BECAUSE in pho no data type declaration in variable
 
 $a="Tops";
 $b=18;

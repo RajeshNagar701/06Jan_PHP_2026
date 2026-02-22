@@ -6,11 +6,9 @@
 <?php
 if(isset($_REQUEST['submit']))
 {
-	
-	echo "hello";
+	echo "AFTER hello <BR>";
 	exit();
-	include('var_dump.php');
-	
+	echo "BEFORE hello";
 }
 else
 {
