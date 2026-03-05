@@ -26,25 +26,21 @@ first add ti form tag enctype="multipart/form-data"
 <?php
 if(isset($_POST['submit']))
 {
-	echo $username=$_POST['username']."<br>";
 	
-	echo $file1=$_FILES['file1']['name'];
-	
-	if($_FILES['file1']['size']>0)
+	echo $_POST['username']. "<br>";
+	 
+	if($_FILES['file1']['size']>0)  // file check file get or not
 	{
-		$path="img/upload/".$file1;  // path where we upload img
-		$dup_file1=$_FILES['file1']['tmp_name']; // get duplicate file
-		move_uploaded_file($dup_file1,$path); // move dupl image in path
+		echo $img=$_FILES['file1']['name']; // file name get
+		
+		$path='image/upload/users/'.$img;  // pathy set
+		$file=$_FILES['file1']['tmp_name']; // get duplicate file
+		move_uploaded_file($file,$path); // upload file in that path
 	}
 	
 }
 
 
-
-session_start();
-echo $_SESSION['user'];
-
-echo $_COOKIE['user'];
 
 ?>
 

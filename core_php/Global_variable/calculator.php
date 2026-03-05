@@ -46,6 +46,13 @@ if(isset($_REQUEST['div']))
 	echo "Your Division : ".$ans=$num1/$num2;
 }
 
+
+session_start();
+
+echo $_SESSION['user'];
+
+echo $_COOKIE['user'];
+
 ?>
 
 

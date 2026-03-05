@@ -2,17 +2,24 @@
 
 https://www.w3schools.com/bootstrap4/bootstrap_grid_basic.asp
 
-Bootstrap 4 Grid System
-Bootstrap's grid system is built with flexbox and allows up to 12 columns across the page.
+Bootstrap's grid system is built with flexbox and allows up to 
+12 columns across the page.
 
-If you do not want to use all 12 columns individually, you can group the columns together to create wider columns:
+The grid system is responsive, and the columns will re-arrange automatically depending on the screen size.
 
-.col- (extra small devices - screen width less than 576px)
-.col-sm- (small devices - screen width equal to or greater than 576px)
-.col-md- (medium devices - screen width equal to or greater than 768px)
+Make sure that the sum adds up to 12 or fewer (it is not required that you use all 12 available columns).
+
+Grid Classes
+The Bootstrap 5 grid system has six classes:
+
+.row : all col works in row class
+
+.col- (extra small devices - screen width less than 576px) < mobile
+.col-sm- (small devices - screen width equal to or greater than 576px) tablet
+.col-md- (medium devices - screen width equal to or greater than 768px) > pc laptop screen
 .col-lg- (large devices - screen width equal to or greater than 992px)
 .col-xl- (xlarge devices - screen width equal to or greater than 1200px)
-
+.col-xxl- (xxlarge devices - screen width equal to or greater than 1400px)
 -->
 
 
@@ -23,51 +30,50 @@ If you do not want to use all 12 columns individually, you can group the columns
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   
   </head>
 
 <body>
+
 <div class="container">
 
-	<div class="row">
-		<div class="col bg-danger" >.col</div>
-		<div class="col bg-primary">.col</div>
-		<div class="col bg-success">.col</div>
-	</div>
-	<br>
-	<br>
-	<br>
-	<div class="row">
-		<div class="col-md bg-danger" >
-			<p>Hello</p>
-			<p>Hello</p>
-			<p>Hello</p>
-		</div>
-		<div class="col-md bg-primary">.col</div>
-		<div class="col-md bg-success">.col</div>
-		<div class="col-md bg-primary">.col</div>
-		<div class="col-md bg-success">.col</div>
-	</div>
-	
-	<br><br>
 	
 	<div class="row">
-		<div class="col-md-4 bg-danger" >
-			<p>Hello</p>
-			<p>Hello</p>
-			<p>Hello</p>
-		</div>
-		<div class="col-md-2 bg-primary">.col</div>
-		<div class="col-md-4 bg-success">.col</div>
-		<div class="col-md-2 bg-primary">.col</div>
+		<div class="col-3 bg-danger"> hello</div>
+		<div class="col-6 bg-success"> hello</div>
+		<div class="col-3 bg-danger"> hello</div>
 	</div>
 	
-
+	<hr>
+	
+	<div class="row">
+		<div class="col-md-3 bg-danger"> hello</div>
+		<div class="col-md-3 bg-success"> hello</div>
+		<div class="col-md-3 bg-danger"> hello</div>
+		<div class="col-md-3 bg-success"> hello</div>
+	</div>
+	
+	<hr>
+	
+	<div class="row">
+		<div class="col-md bg-danger"> hello</div>
+		<div class="col-md bg-success"> hello</div>
+		<div class="col-md bg-danger"> hello</div>
+		<div class="col-md bg-success"> hello</div>
+		<div class="col-md bg-danger"> hello</div>
+	</div>
+	
+	<hr>
+	
+	<div class="row">
+		<div class="col-md-3 col-sm-6 bg-danger"> hello</div>
+		<div class="col-md-3 col-sm-6 bg-success"> hello</div>
+		<div class="col-md-3 col-sm-6 bg-danger"> hello</div>
+		<div class="col-md-3 col-sm-6 bg-success"> hello</div>
+	</div>
+	
 </div>
 
 
