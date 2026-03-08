@@ -7,4 +7,5 @@ echo "<br>";
 print_r(array_keys($a)); // arr of keys
 echo "<br>";
 print_r(array_values($a)) // arr of values
+
 ?>

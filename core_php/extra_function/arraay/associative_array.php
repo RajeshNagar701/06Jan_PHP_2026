@@ -1,14 +1,12 @@
 <?php
 $associate=array("id"=>"1","name"=>"rajesh","email"=>"raj@gmail.com");  // associate
 print_r($associate);
-echo "<br>";
 
 
-echo $associate['email']. "<br>";
+echo $associate['email'];
 
-
-foreach($associate as $string)
+foreach($associate as $d)
 {
-	echo "<h1>" .$string ."<h1>";
+	echo "<h1>". $d ."</h1>";
 }
 ?>
