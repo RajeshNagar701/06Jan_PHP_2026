@@ -38,8 +38,8 @@ used to create APIs for web-based applications.
 Json_encode & jason_decode func with example ?
 
 
-$arr=array(“name”=>”Rajesh”, ”age”=>31); arr to json
-json={ “name”: “Rajesh” , ”age”:”31”}
+$arr=  array(“name”=>”Rajesh”, ”age”=>31); arr to json
+json=  { “name”: “Rajesh” , ”age”:”31”}
 
 */
 

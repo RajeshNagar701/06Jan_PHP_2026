@@ -4,15 +4,12 @@
 </form>
 
 <?php
+
 if(isset($_REQUEST['submit']))
 {
+	// task 
 	
 	header('location:wellcome_location.php'); 
-	//you will redirected in wellcome.php page  	
-	/*	
-	echo "<script>
-		window.location='wellcome_location.php';
-	</script>";
-	*/
 }
+
 ?>
