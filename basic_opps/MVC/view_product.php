@@ -21,12 +21,20 @@
       </tr>
     </thead>
     <tbody>
+	<?php
+	/*
+	foreach($product as $data)
+	{
+	?>
       <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
+        <td><?php echo $data->id?></td>
+        <td><?php echo $data->name?></td>
+        <td><?php echo $data->email?></td>
       </tr>
-    
+    <?php
+	}
+	*/
+	?>
     </tbody>
   </table>
 </div>

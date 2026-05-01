@@ -6,8 +6,8 @@ What is MVC
 MVC is abbreviated as Model View Controller is a design pattern 
 created for developing applications specifically web applications. 
 
-As the name suggests, it has three major parts. The traditional software 
-design pattern works in an "Input - Process - Output" pattern whereas 
+As the name suggests, it has three major parts. 
+The traditional software design pattern works in an "Input - Process - Output" pattern whereas 
 MVC works as "Controller -Model - View" approach. With the emergence 
 of the MVC model, creation of application takes different aspects 
 individually into consideration. These aspects of the application are:
@@ -15,11 +15,11 @@ individually into consideration. These aspects of the application are:
 
 Let us discuss the three components of MVC in brief:
 
-Model: The Model encloses the clean application related data. 
+Model:  The Model encloses the clean application related data. 
 		But the model does not deal with any logic about how to present 
 		the data.
 		
-		MODEL CONNECTED WITH Database + Logic (crud ins/ipd/del/sel)
+		MODEL CONNECTED WITH Database + Logic (crud ins/upd/del/sel)
 	
 
 Controller: The Controller is in between the model and the view element. 
@@ -28,11 +28,15 @@ Controller: The Controller is in between the model and the view element.
 
 	
 		
-View: The View element is used for presenting the data of the model to the user. 
+View:   The View element is used for presenting the data of the model to the user. 
 		This element deals with how to link up with the model's data but 
 		doesn't provide any logic regarding what this data all about or how users can use these data.
 */
 
+
+// database connectivity
+				// hostname  username  pass db_name	
+$conn=new mysqli('localhost','root','','bakery');
 
 
 class model{
@@ -59,7 +63,5 @@ class model{
 }
 
 $obj=new model;
-$obj->select('feedback');
-$obj->select('customer');
-$obj->select('contact');
+
 ?>

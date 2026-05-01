@@ -58,7 +58,7 @@ class abc
 	
 	function display()
 	{
-		abc::__construct();
+		abc::__construct();  // __construct() function autocall by ::(scopresolution) keyword
 		$this->simple();
 		echo "Display Function <br>";
 	}

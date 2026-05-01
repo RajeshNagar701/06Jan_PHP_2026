@@ -4,19 +4,32 @@ include_once('model.php');
 
 class control extends model{
 	
-	
 	function __construct(){
 		
-		$page_url=$_SERVER['PATH_INFO']; //http://localhost/students/10th_August_PHP_2024/basic_opps/MVC/control.php
+		$url=$_SERVER['PATH_INFO'];  //http://localhost/students/06Jan_PHP_2026/basic_opps/MVC/control.php
 		
-		switch($page_url){
+		switch($url)
+		{
 			
-			case '/mypage':
-			
-				$regsister_data=$this->select('register');
+			case '/manage_product':
+				//$product=$this->select('product');
 				include_once('view_product.php');
 			break;
 			
+			case '/manage_categories':
+				//$product=$this->select('product');
+				include_once('manage_categories.php');
+			break;
+			
+			case '/manage_categories':
+				//$product=$this->select('product');
+				include_once('manage_categories.php');
+			break;
+			
+			case '/manage_categories':
+				//$product=$this->select('product');
+				include_once('manage_categories.php');
+			break;
 		}
 	}
 }

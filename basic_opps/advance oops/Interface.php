@@ -10,10 +10,14 @@ implement.
 
 PHP - Interfaces vs. Abstract Classes
 
-Interfaces are similar to abstract classes. The difference between interfaces and abstract classes are:
+Interfaces are similar to abstract classes. The difference between interfaces and 
+abstract classes are:
+
 Interfaces cannot have properties, while abstract classes can
-All interface methods must be public, while abstract class methods is public or protected
-All methods in an interface are abstract, so they cannot be implemented in code and the abstract keyword is not necessary
+All interface methods must be public, while abstract class methods is public or 
+protected
+All methods in an interface are abstract, so they cannot be implemented in code 
+and the abstract keyword is not necessary
 
 
 
@@ -38,8 +42,7 @@ class B implements A1,A2  // use extend impliments
 	  function bar() 
 	 {
 		 echo "This is A2 INTERFACE bar.<br>";
-	 }
-    
+	 } 
   }
   
 

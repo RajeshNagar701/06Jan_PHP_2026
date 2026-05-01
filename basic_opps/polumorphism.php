@@ -15,7 +15,6 @@ us to assign more than one property.
 /*
 class abc
 {
-	
 	function sum($a,$b)
 	{
 		echo $a+$b;
@@ -52,7 +51,7 @@ class xyz extends abc
 {
 	function sum($a,$b)
 	{
-		abc::sum(5,5); //parent::sum(5,5);
+		abc::sum(5,5);
 		echo $a*$b;
 	}
 }

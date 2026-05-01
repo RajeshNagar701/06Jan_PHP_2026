@@ -24,6 +24,7 @@ visiblity all time public must
 class abc
 {
 	public const my_const="const_value";   // in static keyword use in static variable use like $my_static
+	public static $my_static="i m static"; 
 	
 	function display()
 	{
@@ -39,7 +40,7 @@ class xyz extends abc
 		echo abc::my_const;
 	}
 }
- echo abc::my_const;  // we can call without object
+echo abc::my_const;  // we can call without object
  
 
  

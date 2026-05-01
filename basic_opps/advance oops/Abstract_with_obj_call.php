@@ -1,6 +1,7 @@
 <?php
 
 /*
+
 An abstract class or method is defined with the abstract keyword:
 An object of an abstract class can't be made.
 An abstract class is a class that contains at least one 
@@ -28,7 +29,7 @@ abstract class A  // define abstract before class declare in main class
 }
 class B extends A
 {
-	function foo()                  // allways listern abstract method in main class must used in extend class like B & C
+	function foo() // allways listern abstract method in main class must used in extend class like B & C
 	{
 		echo "This is B class foo method";
 	}
