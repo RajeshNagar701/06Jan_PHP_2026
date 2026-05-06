@@ -26,7 +26,7 @@ https://templatemo.com/tm-608-daynight-admin
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <div class="mobile-menu-header">
-            <a href="dashboard.php" class="logo">
+            <a href="dashboard" class="logo">
                 DayNight
             </a>
             <button class="mobile-menu-close" onclick="closeMobileMenu()">
@@ -37,7 +37,7 @@ https://templatemo.com/tm-608-daynight-admin
             </button>
         </div>
         <nav class="mobile-menu-nav">
-            <a href="dashoard.php" class="active">
+            <a href="dashoard" class="active">
                 Dashboard
             </a>
 			<div class="dropdown">
@@ -52,7 +52,7 @@ https://templatemo.com/tm-608-daynight-admin
             </div>
         </nav>
         <div class="mobile-menu-footer">
-            <a href="index.php" class="mobile-logout-btn">
+            <a href="index" class="mobile-logout-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                     <polyline points="16 17 21 12 16 7"/>
@@ -91,7 +91,7 @@ https://templatemo.com/tm-608-daynight-admin
         <nav class="top-nav">
             <div class="nav-container">
                 <div class="nav-left">
-                    <a href="dashboard.php" class="logo">
+                    <a href="dashboard" class="logo">
                         <div class="logo-icon">
                             <svg viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
@@ -101,7 +101,7 @@ https://templatemo.com/tm-608-daynight-admin
                     </a>
                     <div class="nav-menu">
                         <div class="nav-item">
-                            <a href="dashboard.php" class="nav-link active">
+                            <a href="dashboard" class="nav-link active">
                              Dashboard
                             </a>
                         </div>
@@ -110,8 +110,8 @@ https://templatemo.com/tm-608-daynight-admin
 							Categories
 						  </a>
 						  <div class="dropdown-menu">
-							<a class="dropdown-item" href="add_categories.php">Add</a>
-							<a class="dropdown-item" href="manage_categories.php">Manage</a>
+							<a class="dropdown-item" href="add_categories">Add</a>
+							<a class="dropdown-item" href="manage_categories">Manage</a>
 						  </div>
 						</div>
 						<div class="nav-item dropdown">
@@ -119,8 +119,8 @@ https://templatemo.com/tm-608-daynight-admin
 							Product
 						  </a>
 						  <div class="dropdown-menu">
-							<a class="dropdown-item" href="add_product.php">Add</a>
-							<a class="dropdown-item" href="manage_product.php">Manage</a>
+							<a class="dropdown-item" href="add_product">Add</a>
+							<a class="dropdown-item" href="manage_product">Manage</a>
 						  </div>
 						</div>
 						<div class="nav-item dropdown">
@@ -128,18 +128,18 @@ https://templatemo.com/tm-608-daynight-admin
 							Shop
 						  </a>
 						  <div class="dropdown-menu">
-							<a class="dropdown-item" href="manage_cart.php">Cart</a>
-							<a class="dropdown-item" href="manage_order.php">Order</a>
-							<a class="dropdown-item" href="manage_feedback.php">Feedback</a>
+							<a class="dropdown-item" href="manage_cart">Cart</a>
+							<a class="dropdown-item" href="manage_order">Order</a>
+							<a class="dropdown-item" href="manage_feedback">Feedback</a>
 						  </div>
 						</div>
 						<div class="nav-item">
-                            <a href="manage_customer.php" class="nav-link">
+                            <a href="manage_customer" class="nav-link">
                                 Customer
                             </a>
                         </div>
 						<div class="nav-item">
-                            <a href="manage_contact.php" class="nav-link">
+                            <a href="manage_contact" class="nav-link">
                                 Contact
                             </a>
                         </div>
@@ -148,8 +148,8 @@ https://templatemo.com/tm-608-daynight-admin
 							Employee
 						  </a>
 						  <div class="dropdown-menu">
-							<a class="dropdown-item" href="add_employee.php">Add</a>
-							<a class="dropdown-item" href="manage_employee.php">Manage</a>
+							<a class="dropdown-item" href="add_employee">Add</a>
+							<a class="dropdown-item" href="manage_employee">Manage</a>
 						  </div>
 						</div>
 

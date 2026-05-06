@@ -26,9 +26,10 @@ include_once('header.php');
                     <table>
                         <thead>
                             <tr>
-								<th >Id</th>
-								<th>Categories Name</th>
-								<th>Image</th>
+								<th>Id</th>
+								<th>prod_id</th>
+								<th>qty</th>
+								<th>Grand Total</th>
 								<th>Action</th>
 							</tr>
                         </thead>

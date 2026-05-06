@@ -23,10 +23,10 @@ include_once('header.php');
                     </div>
                 </div>
                
-				 <form action="" method="post" >
+				 <form action="" method="post"  enctype="multipart/form-data">
 					  <div class="form-group">
 						<label class="form-label">Product Name</label>
-						<input type="text" name="cate_name" class="form-input">
+						<input type="text" name="name" class="form-input">
 					  </div>
 					  <div class="form-group">
 						<label class="form-label">Main Price</label>
@@ -34,7 +34,7 @@ include_once('header.php');
 					  </div>
 					  <div class="form-group">
 						<label class="form-label">Discounted Price</label>
-						<input type="number" name="dis_price" class="form-input">
+						<input type="number" name="discounted_price" class="form-input">
 					  </div>
 					  <div class="form-group">
 						<label class="form-label">Long Description</label>
@@ -46,7 +46,7 @@ include_once('header.php');
 					  </div>
 					  <div class="form-group">
 						<label class="form-label">Product Image</label>
-						<input type="file" name="cate_image" class="form-input">
+						<input type="file" name="image" class="form-input">
 					  </div>
 					  <div class="form-group">
 						<input type="submit" name="submit"  class="btn btn-primary" />

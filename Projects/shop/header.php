@@ -71,25 +71,25 @@ https://templatemo.com/tm-571-hexashop
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="index.php" class="<?php active('index.php')?>">Home</a></li>
-                            <li><a href="about.php" class="<?php active('about.php')?>">About Us</a></li>
+                            <li><a href="index" class="<?php active('index')?>">Home</a></li>
+                            <li><a href="about" class="<?php active('about')?>">About Us</a></li>
 							<li class="submenu">
                                 <a href="javascript:;">Products</a>
                                 <ul>
-									<li><a href="products.php">Men's</a></li>
-                                    <li><a href="products.php">Women's</a></li>
-                                    <li><a href="products.php">Kids</a></li>
+									<li><a href="products">Men's</a></li>
+                                    <li><a href="products">Women's</a></li>
+                                    <li><a href="products">Kids</a></li>
                                 </ul>
                             </li>
-                            <li><a href="contact.php" class="<?php  active('contact.php')?>">Contact Us</a></li>
-							<li><a href="login.php" class="<?php  active('login.php')?>">Login</a></li>
+                            <li><a href="contact" class="<?php  active('contact')?>">Contact Us</a></li>
+							<li><a href="login" class="<?php  active('login')?>">Login</a></li>
 							
 							<li class="submenu">
                                 <a href="javascript:;">Hi.. Raj</a>
                                 <ul>
-									<li><a href="products.php">Profile</a></li>
-                                    <li><a href="products.php">My Orders</a></li>
-                                    <li><a href="products.php">Logout</a></li>
+									<li><a href="products">Profile</a></li>
+                                    <li><a href="products">My Orders</a></li>
+                                    <li><a href="products">Logout</a></li>
                                 </ul>
                             </li>
 							<!--

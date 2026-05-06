@@ -35,17 +35,23 @@ include_once('header.php');
 							</tr>
                         </thead>
                         <tbody>
-                            <tr>
-								<td>1</td>
-								<td>Ritu</td>
-								<td>Ritu@gmail.Comment</td>
-								<td>12548796</td>
-								<td>Whats addrss plz</td>
-								<td>
-									<a href="" class="btn btn-primary">Delete</a>
-									<a href="" class="btn btn-primary">Repply</a>
-								</td>
-							</tr>
+                            <?php
+                                foreach ($contact_arr as $data) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $data->id;?></td>
+                                        <td><?php echo $data->name;?></td>
+                                        <td><?php echo $data->email;?></td>
+                                        <td><?php echo $data->mobile;?></td>
+                                        <td><?php echo $data->comment;?><td>
+                                            <a href="" class="btn btn-primary">Delete</a>
+                                            <a href="" class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            ?>
+                            
                         </tbody>
                     </table>
                 </div>

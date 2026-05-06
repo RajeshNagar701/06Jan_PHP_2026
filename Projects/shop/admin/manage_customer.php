@@ -29,7 +29,6 @@ include_once('header.php');
 								<th>Id</th>
 								<th>Name</th>
 								<th>Email</th>
-								<th>Password</th>
 								<th>Mobile</th>
 								<th>Gender</th>
 								<th>Hobby</th>
@@ -38,20 +37,25 @@ include_once('header.php');
 							</tr>
                         </thead>
                         <tbody>
-                            <tr>
-								<td>1</td>
-								<td>Rajesh</td>
-								<td>RAJESH@GMAIL.COM</td>
-								<td>1234</td>
-								<td>9722041171</td>
-								<td>Male</td>
-								<td>Cricket</td>
-								<td><img src="../assets/images/men-02.jpg" width="50px"/></td>
-								<td>
-									<a href="" class="btn btn-primary">Delete</a>
-									<a href="" class="btn btn-primary">Edit</a>
-								</td>
-							</tr>
+                            <?php
+                                foreach ($customer_arr as $data) {
+                                ?>
+                                    <tr>
+                                        <td><?php echo $data->id;?></td>
+                                        <td><?php echo $data->name;?></td>
+                                        <td><?php echo $data->email;?></td>
+                                        <td><?php echo $data->mobile;?></td>
+                                        <td><?php echo $data->gender;?></td>
+                                        <td><?php echo $data->hobby;?></td>
+                                        <td><img src="../assets/images/men-02.jpg" width="50px" /></td>
+                                        <td>
+                                            <a href="" class="btn btn-primary">Delete</a>
+                                            <a href="" class="btn btn-primary">Edit</a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            ?>
                         </tbody>
                     </table>
                 </div>
