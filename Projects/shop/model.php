@@ -8,14 +8,31 @@
         }
 
         function select($tbl){
-            $sel="select * from $tbl";    
-            $run=$this->conn->query($sel);
+            $sel="select * from $tbl";       //query
+            $run=$this->conn->query($sel);   // query run on db
             while($fetch=$run->fetch_object())
             {
                 $arr[]=$fetch;
             }
             return $arr;
         }
+
+        // insert function
+        // $arr=array("id"=>"1","cate_name"=>"Men","cate_img"=>"flana.jpg")
+        function insert($tbl,$arr){
+          
+            $col_arr=array_keys($arr);  // array("0"=>"id","1"=>"cate_name");
+            $col=implode(",",$col_arr); // id,cate_name,cate_image
+
+            $value_arr=array_values($arr);  // array("0"=>"1","1"=>"Men");
+            $value=implode("','",$value_arr); // '1','Men','falana.jpg'
+
+            $ins="insert into $tbl ($col) values('$value')";    
+            $run=$this->conn->query($ins);
+            return $run;
+        }
+
+
 
     }
     $obj=new model;

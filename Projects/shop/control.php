@@ -24,6 +24,19 @@
                     include_once('single-product.php');
                 break; 
                 case '/contact':
+                    if(isset($_REQUEST['submit']))
+                    {
+                        $name=$_REQUEST['name'];
+                        $email=$_REQUEST['email'];
+                        $mobile=$_REQUEST['mobile'];
+                        $comment=$_REQUEST['comment'];
+
+                        //$img=$_FILES['imgae']['name'];
+
+                        $data=array("name"=>$name,"email"=>$email,"mobile"=>$mobile,"comment"=>$comment);
+                        $res=$this->insert('contact',$data);    
+                        echo "<script>alert('Contact Success');</script>";
+                    }
                     include_once('contact.php');
                 break; 
                 case '/signup':
