@@ -22,17 +22,15 @@
         function insert($tbl,$arr){
           
             $col_arr=array_keys($arr);  // array("0"=>"id","1"=>"cate_name");
-            $col=implode(",",$col_arr); // id,cate_name,cate_image
+            $col=implode(",",$col_arr); //arr to string/ id,cate_name,cate_image  
 
             $value_arr=array_values($arr);  // array("0"=>"1","1"=>"Men");
             $value=implode("','",$value_arr); // '1','Men','falana.jpg'
 
-            $ins="insert into $tbl ($col) values('$value')";    
-            $run=$this->conn->query($ins);
+            $ins="insert into $tbl ($col) values('$value')";     // query
+            $run=$this->conn->query($ins);                       // run
             return $run;
         }
-
-
 
     }
     $obj=new model;

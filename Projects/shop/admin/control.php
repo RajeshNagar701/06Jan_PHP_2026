@@ -18,6 +18,21 @@
                     include_once('dashboard.php');
                 break; 
                 case '/add_categories':
+					if(isset($_REQUEST['submit']))
+                    {
+                        $cate_name=$_REQUEST['cate_name'];
+                        $image=$_FILES['image']['name'];
+						
+						// image upload
+						$path='../assets/upload/categories/'.$image;  // pathy set
+						$image_file=$_FILES['image']['tmp_name']; // get duplicate file
+						move_uploaded_file($image_file,$path); // upload file in that path
+						
+						
+                        $arr=array("cate_name"=>$cate_name,"image"=>$image);
+                        $res=$this->insert('categories',$arr);    
+                        echo "<script>alert('Categories Add Success');</script>";
+                    }
                     include_once('add_categories.php');
                 break; 
                 case '/manage_categories':

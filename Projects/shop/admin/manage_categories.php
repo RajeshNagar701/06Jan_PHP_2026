@@ -39,7 +39,7 @@ include_once('header.php');
                         <tr>
                             <td><?php echo $data->id;?></td>
                             <td><?php echo $data->cate_name;?></td>
-                            <td><img src="../assets/images/men-02.jpg" width="50px" /></td>
+                            <td><img src="../assets/upload/categories/<?php echo $data->image;?>" width="50px" height="80px" /></td>
                             <td>
                                 <a href="" class="btn btn-primary">Delete</a>
                                 <a href="" class="btn btn-primary">Edit</a>

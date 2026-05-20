@@ -33,8 +33,8 @@
 
                         //$img=$_FILES['imgae']['name'];
 
-                        $data=array("name"=>$name,"email"=>$email,"mobile"=>$mobile,"comment"=>$comment);
-                        $res=$this->insert('contact',$data);    
+                        $arr=array("name"=>$name,"email"=>$email,"mobile"=>$mobile,"comment"=>$comment);
+                        $res=$this->insert('contact',$arr);    
                         echo "<script>alert('Contact Success');</script>";
                     }
                     include_once('contact.php');
