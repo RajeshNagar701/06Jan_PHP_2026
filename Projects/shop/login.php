@@ -32,12 +32,12 @@ include_once('header.php')
 
             <div class="col-lg-12 mb-3">
               <fieldset>
-                <input name="email" type="text" id="email" placeholder="Your email" required="">
+                <input name="email" type="text" placeholder="Your email" required="">
               </fieldset>
             </div>
             <div class="col-lg-12 mb-3">
               <fieldset>
-                <input name="password" type="password" id="name" placeholder="Your password" required="">
+                <input name="password" type="password" placeholder="Your password" required="">
               </fieldset>
             </div>
 

@@ -35,14 +35,56 @@
 
                         $arr=array("name"=>$name,"email"=>$email,"mobile"=>$mobile,"comment"=>$comment);
                         $res=$this->insert('contact',$arr);    
-                        echo "<script>alert('Contact Success');</script>";
+                        //echo "<script>alert('Contact Success');</script>";
                     }
                     include_once('contact.php');
                 break; 
                 case '/signup':
+					if(isset($_REQUEST['submit']))
+                    {
+                        $name=$_REQUEST['name'];
+                        $email=$_REQUEST['email'];
+                        $password=md5($_REQUEST['password']);  // hash pass encript
+                        $gender=$_REQUEST['gender'];
+                        $hobby_arr=$_REQUEST['hobby'];// arr hobby
+						$hobby=implode(",",$hobby_arr); // arr to string
+                        $mobile=$_REQUEST['mobile'];
+
+                        $image=$_FILES['image']['name'];
+						
+						// image upload
+						$path='assets/upload/customers/'.$image;  // pathy set
+						$image_file=$_FILES['image']['tmp_name']; // get duplicate file
+						move_uploaded_file($image_file,$path); // upload file in that path
+						
+
+                        $arr=array("name"=>$name,"email"=>$email,"password"=>$password,"gender"=>$gender,"hobby"=>$hobby,"image"=>$image,"mobile"=>$mobile);
+                        $res=$this->insert('customer',$arr);    
+                        echo "<script>alert('Signin Success');</script>";
+                    }
                     include_once('signup.php');
                 break;
                 case '/login':
+
+					if(isset($_REQUEST['submit']))
+                    {
+                        $email=$_REQUEST['email'];
+                        $password=md5($_REQUEST['password']);  // hash pass encript
+                       
+                        $arr=array("email"=>$email,"password"=>$password);
+                       
+					    $res=$this->select_where('customer',$arr);    
+                        $chk=$res->num_rows;
+						if($chk==1) // 1 means true
+						{
+							echo "<script>alert('Login Success');window.location='index';</script>";
+						}
+						else
+						{
+							echo "<script>alert('Login Failed Due to wrong Creadential');</script>";
+						}
+						
+                    }	
                     include_once('login.php');
                 break;    
             }

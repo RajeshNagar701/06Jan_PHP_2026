@@ -27,8 +27,23 @@
             $value_arr=array_values($arr);  // array("0"=>"1","1"=>"Men");
             $value=implode("','",$value_arr); // '1','Men','falana.jpg'
 
-            $ins="insert into $tbl ($col) values('$value')";     // query
+            echo $ins="insert into $tbl ($col) values('$value')";     // query
             $run=$this->conn->query($ins);                       // run
+            return $run;
+        }
+		
+		function select_where($tbl,$arr){
+          
+            $col_arr=array_keys($arr);
+            $value_arr=array_values($arr); 
+            $i=0;
+			$sel="select * from $tbl where 1=1";     // query continue
+			foreach($arr as $w)
+			{
+				$sel.=" and $col_arr[$i]='$value_arr[$i]'";
+				$i++;
+			}
+            $run=$this->conn->query($sel);                       // run
             return $run;
         }
 

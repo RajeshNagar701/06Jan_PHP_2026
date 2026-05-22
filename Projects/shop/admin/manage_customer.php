@@ -47,7 +47,7 @@ include_once('header.php');
                                         <td><?php echo $data->mobile;?></td>
                                         <td><?php echo $data->gender;?></td>
                                         <td><?php echo $data->hobby;?></td>
-                                        <td><img src="../assets/images/men-02.jpg" width="50px" /></td>
+                                        <td><img src="../assets/upload/customers/<?php echo $data->image;?>" width="50px" /></td>
                                         <td>
                                             <a href="" class="btn btn-primary">Delete</a>
                                             <a href="" class="btn btn-primary">Edit</a>

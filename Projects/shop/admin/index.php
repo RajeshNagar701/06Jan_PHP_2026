@@ -56,10 +56,10 @@ https://templatemo.com/tm-608-daynight-admin
                     <p class="login-subtitle">Sign in to your account to continue</p>
                 </div>
 
-                <form class="login-form">
+                <form method="post" class="login-form">
                     <div class="form-group">
                         <label class="form-label">Email Address</label>
-                        <input type="email" class="form-input" placeholder="you@example.com">
+                        <input type="email" name="email" class="form-input" placeholder="you@example.com">
                     </div>
                     
                     <div class="form-group">
@@ -67,7 +67,7 @@ https://templatemo.com/tm-608-daynight-admin
                             <label class="form-label" style="margin-bottom: 0;">Password</label>
                             <a href="#" style="font-size: 0.8125rem; color: var(--accent);">Forgot password?</a>
                         </div>
-                        <input type="password" class="form-input" placeholder="Enter your password">
+                        <input type="password" name="password" class="form-input" placeholder="Enter your password">
                     </div>
                     
                     <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
@@ -75,7 +75,7 @@ https://templatemo.com/tm-608-daynight-admin
                         <label for="remember" style="font-size: 0.875rem; color: var(--text-secondary); cursor: pointer;">Remember me for 30 days</label>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary" onclick="event.preventDefault(); window.location.href='index.html';">
+                    <button type="submit" name="submit" class="btn btn-primary">
                         Sign In
                     </button>
                 </form>
