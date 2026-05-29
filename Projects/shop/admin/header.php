@@ -1,3 +1,17 @@
+
+
+<?php
+if(isset($_SESSION['admin_email']))
+{
+	
+}
+else
+{
+	echo "<script>alert('Login First');window.location='admin-login';</script>";
+}	
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,7 +66,7 @@ https://templatemo.com/tm-608-daynight-admin
             </div>
         </nav>
         <div class="mobile-menu-footer">
-            <a href="index" class="mobile-logout-btn">
+            <a href="admin_logout" class="mobile-logout-btn">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                     <polyline points="16 17 21 12 16 7"/>
@@ -178,9 +192,9 @@ https://templatemo.com/tm-608-daynight-admin
                     </div>
                     <button class="user-menu">
                         <div class="user-avatar">A</div>
-                        <span class="user-name">Alex</span>
+                        <span class="user-name"><?php echo $_SESSION['admin_name']?></span>
                     </button>
-                    <a href="login.html" class="btn-logout" title="Logout">
+                    <a href="admin_logout" class="btn-logout" title="Logout">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
                             <polyline points="16 17 21 12 16 7"/>

@@ -6,6 +6,9 @@
 
         function __construct()
         {
+			
+			session_start();
+			
             model::__construct(); // step 3 call model __construct
 
             $url=$_SERVER['PATH_INFO'];
@@ -20,9 +23,13 @@
                         $arr=array("email"=>$email,"password"=>$password);
                        
 					    $res=$this->select_where('admin',$arr);    
-                        $chk=$res->num_rows;
+                        $chk=$res->num_rows; // check row wise dat get or not
 						if($chk==1) // 1 means true
 						{
+							// create session
+							$fetch=$res->fetch_object();
+							$_SESSION['admin_email']=$fetch->email;
+							$_SESSION['admin_name']=$fetch->name;
 							echo "<script>alert('Login Success');window.location='dashboard';</script>";
 						}
 						else
@@ -33,6 +40,13 @@
                     }	
                     include_once('index.php');
                 break;
+				
+				case '/admin_logout':
+					unset($_SESSION['admin_email']);
+					unset($_SESSION['admin_name']);
+					echo "<script>alert('Logout Success');window.location='admin-login';</script>";
+				break;
+				
                 case '/dashboard':
                     include_once('dashboard.php');
                 break; 

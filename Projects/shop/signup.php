@@ -1,4 +1,8 @@
 <?php
+if(isset($_SESSION['user_email']))
+{
+	echo "<script>window.location='index';</script>";
+}
 include_once('header.php')
 ?>
 

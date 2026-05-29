@@ -82,16 +82,28 @@ https://templatemo.com/tm-571-hexashop
                                 </ul>
                             </li>
                             <li><a href="contact" class="<?php  active('contact')?>">Contact Us</a></li>
-							<li><a href="login" class="<?php  active('login')?>">Login</a></li>
 							
+							<?php
+							if(isset($_SESSION['user_email']))
+							{	
+							?>
 							<li class="submenu">
-                                <a href="javascript:;">Hi.. Raj</a>
+                                <a href="javascript:;">Hi.. <?php echo $_SESSION['user_name']?></a>
                                 <ul>
 									<li><a href="products">Profile</a></li>
                                     <li><a href="products">My Orders</a></li>
-                                    <li><a href="products">Logout</a></li>
+                                    <li><a href="user_logout">Logout</a></li>
                                 </ul>
                             </li>
+							<?php
+							}
+							else
+							{	
+							?>
+							<li><a href="login" class="<?php  active('login')?>">Login</a></li>
+							<?php
+							}
+							?>
 							<!--
                            
 							

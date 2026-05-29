@@ -5,7 +5,10 @@
 
 
         function __construct()
-        {
+        {	
+		
+			session_start();
+			
             model::__construct(); // step 3 call model __construct
 
             $url=$_SERVER['PATH_INFO'];
@@ -74,9 +77,15 @@
                         $arr=array("email"=>$email,"password"=>$password);
                        
 					    $res=$this->select_where('customer',$arr);    
-                        $chk=$res->num_rows;
+                        $chk=$res->num_rows; // check result by rowwise
 						if($chk==1) // 1 means true
 						{
+							// create session
+							$fetch=$res->fetch_object(); // fetch data whose email & pass match
+							
+							$_SESSION['user_email']=$fetch->email;
+							$_SESSION['user_name']=$fetch->name;
+							
 							echo "<script>alert('Login Success');window.location='index';</script>";
 						}
 						else
@@ -86,7 +95,13 @@
 						
                     }	
                     include_once('login.php');
-                break;    
+                break;
+
+				case '/user_logout':
+					unset($_SESSION['user_email']);
+					unset($_SESSION['user_name']);
+					echo "<script>alert('Logout Success');window.location='index';</script>";
+				break;
             }
 
         }

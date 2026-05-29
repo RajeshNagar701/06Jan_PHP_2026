@@ -1,3 +1,13 @@
+<?php
+if(isset($_SESSION['admin_email']))
+{
+	echo "<script>window.location='dashboard';</script>";
+}
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
