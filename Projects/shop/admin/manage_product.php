@@ -49,7 +49,7 @@ include_once('header.php');
                             <td><?php echo $data->short_desc; ?></td>
                             <td><img src="../assets/images/men-02.jpg" width="50px" /></td>
                             <td>
-                                <a href="" class="btn btn-primary">Delete</a>
+                                <a href="delete?del_product=<?php echo $data->id;?>" class="btn btn-primary">Delete</a>
                                 <a href="" class="btn btn-primary">Edit</a>
                             </td>
                         </tr>

@@ -46,6 +46,21 @@
             $run=$this->conn->query($sel);                       // run
             return $run;
         }
+		
+		function delete_where($tbl,$arr){
+          
+            $col_arr=array_keys($arr);
+            $value_arr=array_values($arr); 
+            $i=0;
+			$del="delete from $tbl where 1=1";     // query continue
+			foreach($arr as $w)
+			{
+				$del.=" and $col_arr[$i]='$value_arr[$i]'";
+				$i++;
+			}
+            $run=$this->conn->query($del);                       // run
+            return $run;
+        }
 
     }
     $obj=new model;

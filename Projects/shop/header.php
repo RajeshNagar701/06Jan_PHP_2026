@@ -90,7 +90,7 @@ https://templatemo.com/tm-571-hexashop
 							<li class="submenu">
                                 <a href="javascript:;">Hi.. <?php echo $_SESSION['user_name']?></a>
                                 <ul>
-									<li><a href="products">Profile</a></li>
+									<li><a href="user_profile">Profile</a></li>
                                     <li><a href="products">My Orders</a></li>
                                     <li><a href="user_logout">Logout</a></li>
                                 </ul>

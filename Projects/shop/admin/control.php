@@ -72,6 +72,19 @@
                     $cate_arr=$this->select('categories');
                     include_once('manage_categories.php');
                 break; 
+				
+				case '/edit_categories':
+					if(isset($_REQUEST['edit']))
+					{
+						$id=$_REQUEST['edit'];
+						$arr=array("id"=>$id);
+						$run=$this->select_where('categories',$arr); // delete image from upload folder
+						$fetch=$run->fetch_object();
+					}
+                    include_once('edit_categories.php');
+                break; 
+				
+				
                 case '/add_product':
                     include_once('add_product.php');
                 break; 
@@ -103,6 +116,69 @@
                     $order_arr=$this->select('order');
                     include_once('manage_order.php');
                 break;     
+				
+				case '/delete':
+                    
+					if(isset($_REQUEST['del_contact']))
+					{
+						$id=$_REQUEST['del_contact'];
+						$arr=array("id"=>$id);
+						$res=$this->delete_where('contact',$arr);
+						echo "<script>alert('Contact Delete Success');window.location='manage_contact';</script>";
+					}
+					if(isset($_REQUEST['del_product']))
+					{
+						$id=$_REQUEST['del_product'];
+						$arr=array("id"=>$id);
+						
+						$run=$this->select_where('products',$arr); // delete image from upload folder
+						$fetch=$run->fetch_object();
+						$image=$fetch->image;
+						unlink('../assets/upload/product/'.$image);
+						
+						$res=$this->delete_where('products',$arr);
+						echo "<script>alert('Product Delete Success');window.location='manage_product';</script>";
+					}
+					if(isset($_REQUEST['del_categories']))
+					{
+						$id=$_REQUEST['del_categories'];
+						$arr=array("id"=>$id);
+						
+						$run=$this->select_where('categories',$arr);
+						$fetch=$run->fetch_object();
+						$image=$fetch->image;
+						unlink('../assets/upload/categories/'.$image);
+						
+						$res=$this->delete_where('categories',$arr);
+						echo "<script>alert('Categories Delete Success');window.location='manage_categories';</script>";
+					}
+					if(isset($_REQUEST['del_customer']))
+					{
+						$id=$_REQUEST['del_customer'];
+						$arr=array("id"=>$id);
+						
+						$run=$this->select_where('customer',$arr); // delete image from upload folder
+						$fetch=$run->fetch_object();
+						$image=$fetch->image;
+						unlink('../assets/upload/customers/'.$image);
+						
+						$res=$this->delete_where('customer',$arr);
+						echo "<script>alert('Customer Delete Success');window.location='manage_customer';</script>";
+					}
+					
+					if(isset($_REQUEST['del_employee']))
+					{
+						$id=$_REQUEST['del_employee'];
+						$arr=array("id"=>$id);
+						$res=$this->delete_where('employee',$arr);
+						echo "<script>alert('Employee Delete Success');window.location='manage_employee';</script>";
+					}
+					
+                break;    
+
+
+						
+				
             }
 
         }

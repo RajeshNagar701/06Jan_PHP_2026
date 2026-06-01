@@ -7,7 +7,7 @@
         function __construct()
         {	
 		
-			session_start();
+			session_start();  // start session
 			
             model::__construct(); // step 3 call model __construct
 
@@ -82,7 +82,7 @@
 						{
 							// create session
 							$fetch=$res->fetch_object(); // fetch data whose email & pass match
-							
+							$_SESSION['user_id']=$fetch->id;
 							$_SESSION['user_email']=$fetch->email;
 							$_SESSION['user_name']=$fetch->name;
 							
@@ -102,6 +102,25 @@
 					unset($_SESSION['user_name']);
 					echo "<script>alert('Logout Success');window.location='index';</script>";
 				break;
+				
+				
+				case '/user_profile':
+					$arr=array("id"=>$_SESSION['user_id']);
+					$run=$this->select_where('customer',$arr); // delete image from upload folder
+					$fetch=$run->fetch_object();
+                    include_once('user_profile.php');
+                break; 
+				
+				case '/edit_profile':
+					if(isset($_REQUEST['edit']))
+					{
+						$id=$_REQUEST['edit'];	
+						$arr=array("id"=>$id);
+						$run=$this->select_where('customer',$arr); // delete image from upload folder
+						$fetch=$run->fetch_object();
+                    }
+					include_once('edit_profile.php');
+                break; 
             }
 
         }

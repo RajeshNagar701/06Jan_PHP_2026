@@ -49,7 +49,7 @@ include_once('header.php');
                                         <td><?php echo $data->hobby;?></td>
                                         <td><img src="../assets/upload/customers/<?php echo $data->image;?>" width="50px" /></td>
                                         <td>
-                                            <a href="" class="btn btn-primary">Delete</a>
+                                            <a href="delete?del_customer=<?php echo $data->id;?>" class="btn btn-primary">Delete</a>
                                             <a href="" class="btn btn-primary">Edit</a>
                                         </td>
                                     </tr>
