@@ -21,9 +21,11 @@
                     include_once('about.php');
                 break; 
                 case '/products':
+					$fetch=$this->select('products');
                     include_once('products.php');
                 break; 
-                case '/single-product':
+                
+				case '/single-product':
                     include_once('single-product.php');
                 break; 
                 case '/contact':
@@ -82,11 +84,17 @@
 						{
 							// create session
 							$fetch=$res->fetch_object(); // fetch data whose email & pass match
-							$_SESSION['user_id']=$fetch->id;
-							$_SESSION['user_email']=$fetch->email;
-							$_SESSION['user_name']=$fetch->name;
-							
-							echo "<script>alert('Login Success');window.location='index';</script>";
+							if($fetch->status=="Unblock")
+							{
+								$_SESSION['user_id']=$fetch->id;
+								$_SESSION['user_email']=$fetch->email;
+								$_SESSION['user_name']=$fetch->name;
+								echo "<script>alert('Login Success');window.location='index';</script>";
+							}
+							else
+							{
+								echo "<script>alert('Login Failed Due to Blocked Account');</script>";
+							}
 						}
 						else
 						{
@@ -115,9 +123,44 @@
 					if(isset($_REQUEST['edit']))
 					{
 						$id=$_REQUEST['edit'];	
-						$arr=array("id"=>$id);
-						$run=$this->select_where('customer',$arr); // delete image from upload folder
+						$where=array("id"=>$id);
+						$run=$this->select_where('customer',$where); // delete image from upload folder
 						$fetch=$run->fetch_object();
+						
+						$old_image=$fetch->image;
+						
+						if(isset($_REQUEST['submit']))
+						{
+							$name=$_REQUEST['name'];
+							$email=$_REQUEST['email'];
+							$gender=$_REQUEST['gender'];
+							$hobby_arr=$_REQUEST['hobby'];// arr hobby
+							$hobby=implode(",",$hobby_arr); // arr to string
+							$mobile=$_REQUEST['mobile'];
+
+							
+							if($_FILES['image']['size']>0)
+							{
+								unlink('assets/upload/customers/'.$old_image);
+								// image upload
+								$image=$_FILES['image']['name'];
+								$path='assets/upload/customers/'.$image;  // pathy set
+								$image_file=$_FILES['image']['tmp_name']; // get duplicate file
+								move_uploaded_file($image_file,$path); // upload file in that path
+								
+								$arr=array("name"=>$name,"email"=>$email,"gender"=>$gender,"hobby"=>$hobby,"image"=>$image,"mobile"=>$mobile);
+								$res=$this->update_where('customer',$arr,$where);  
+								
+								echo "<script>alert('Update Success');window.location='user_profile';</script>";
+							}
+							else
+							{
+								$arr=array("name"=>$name,"email"=>$email,"gender"=>$gender,"hobby"=>$hobby,"mobile"=>$mobile);
+								$res=$this->update_where('customer',$arr,$where);  
+								echo "<script>alert('Update Success');window.location='user_profile';</script>";
+
+							}	
+						}
                     }
 					include_once('edit_profile.php');
                 break; 

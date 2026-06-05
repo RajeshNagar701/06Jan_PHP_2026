@@ -45,45 +45,45 @@ include_once('header.php')
             </div>
             <div class="col-lg-12 mb-3">
               <fieldset>
-                <input name="email" type="text" placeholder="Your email" required="">
+                <input name="email" type="text" placeholder="Your email" value="<?php echo $fetch->email?>" required="">
               </fieldset>
             </div>
-            <div class="col-lg-12 mb-3">
-              <fieldset>
-                <input name="password" type="password" placeholder="Your password" required="">
-              </fieldset>
-            </div>
+         
 			<div class="col-lg-12 mb-3">
               <fieldset>
 				Gender :
-                Male<input name="gender" type="radio" value="Male">
-				Female<input name="gender" type="radio" value="Female">
+                Male<input name="gender" type="radio" value="Male" <?php if($fetch->gender=="Male") { echo "checked";}?>>
+				Female<input name="gender" type="radio" value="Female"  <?php if($fetch->gender=="Female") { echo "checked";}?>>
               </fieldset>
             </div>
 			
 			<div class="col-lg-12 mb-3">
               <fieldset>
+				<?php
+				$hobby=$fetch->hobby; // Sports,Dancing,Singing
+				$hobby_arr=explode(",",$hobby);
+				?>
 				Hobby :
-                Sports<input name="hobby[]" type="checkbox" value="Sports">
-				Dancing<input name="hobby[]" type="checkbox" value="Dancing">
-				Singing<input name="hobby[]" type="checkbox" value="Singing">
+                Sports<input name="hobby[]" type="checkbox" value="Sports" <?php if(in_array("Sports",$hobby_arr)){ echo "checked";}?>>
+				Dancing<input name="hobby[]" type="checkbox" value="Dancing" <?php if(in_array("Dancing",$hobby_arr)){ echo "checked";}?>>
+				Singing<input name="hobby[]" type="checkbox" value="Singing" <?php if(in_array("Singing",$hobby_arr)){ echo "checked";}?>>
               </fieldset>
             </div>
 			<div class="col-lg-12 mb-3">
               <fieldset>
-                <input name="image" type="file" placeholder="Your Image" required="">
+                <input name="image" type="file" placeholder="Your Image" >
+				<img src="assets/upload/customers/<?php echo $fetch->image?>" height="50px" alt="">
               </fieldset>
             </div>
             <div class="col-lg-12 mb-3">
               <fieldset>
-                <input name="mobile" type="number" placeholder="Your Mobile" required="">
+                <input name="mobile" type="number" placeholder="Your Mobile" value="<?php echo $fetch->mobile?>" required="">
               </fieldset>
             </div>
 
             <div class="col-lg-12">
               <fieldset>
-                <button type="submit" name="submit" class="btn btn-dark">Signup Here</button>
-                <a href="login" class="float-end">If you already Registered then Login Here</a>
+                <button type="submit" name="submit" class="btn btn-dark">Save</button>
               </fieldset>
             </div>
           </div>

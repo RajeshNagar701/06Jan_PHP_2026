@@ -28,6 +28,7 @@ include_once('header.php');
                     <tr>
                         <th>Id</th>
                         <th>Name</th>
+						<th>Categories</th>
                         <th>Main Price</th>
                         <th>Discounted Price</th>
                         <th>Long Description</th>
@@ -43,13 +44,15 @@ include_once('header.php');
                         <tr>
                             <td><?php echo $data->id; ?></td>
                             <td><?php echo $data->name; ?></td>
+							<td><?php echo $data->cate_id; ?></td>
                             <td><?php echo $data->main_price; ?></td>
                             <td><?php echo $data->discounted_price; ?></td>
                             <td><?php echo $data->long_desc; ?></td>
                             <td><?php echo $data->short_desc; ?></td>
-                            <td><img src="../assets/images/men-02.jpg" width="50px" /></td>
+                            <td><img src="../assets/upload/product/<?php echo $data->image?>" width="50px" /></td>
                             <td>
                                 <a href="delete?del_product=<?php echo $data->id;?>" class="btn btn-primary">Delete</a>
+								<a href="status?status_product=<?php echo $data->id;?>" class="btn btn-primary"><?php echo $data->status;?></a>
                                 <a href="" class="btn btn-primary">Edit</a>
                             </td>
                         </tr>

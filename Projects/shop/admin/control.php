@@ -86,6 +86,29 @@
 				
 				
                 case '/add_product':
+					$categories=$this->select('categories');
+					if(isset($_REQUEST['submit']))
+                    {
+                        $cate_id=$_REQUEST['cate_id'];
+						$name=$_REQUEST['name'];
+						$main_price=$_REQUEST['main_price'];
+						$discounted_price=$_REQUEST['discounted_price'];
+						$long_desc=$_REQUEST['long_desc'];
+						$short_desc=$_REQUEST['short_desc'];
+						
+                        $image=$_FILES['image']['name'];
+						
+						// image upload
+						$path='../assets/upload/product/'.$image;  // pathy set
+						$image_file=$_FILES['image']['tmp_name']; // get duplicate file
+						move_uploaded_file($image_file,$path); // upload file in that path
+						
+                        $arr=array("cate_id"=>$cate_id,"name"=>$name,"main_price"=>$main_price
+						,"discounted_price"=>$discounted_price,"long_desc"=>$long_desc,"short_desc"=>$short_desc,"image"=>$image);
+						
+                        $res=$this->insert('products',$arr);    
+                        echo "<script>alert('products Add Success');</script>";
+                    }
                     include_once('add_product.php');
                 break; 
                 case '/manage_product':
@@ -176,6 +199,66 @@
 					
                 break;    
 
+				case '/status':
+				
+				
+					if(isset($_REQUEST['status_customer']))
+					{
+						$id=$_REQUEST['status_customer'];
+						$where=array("id"=>$id);
+						$res=$this->select_where('customer',$where);
+						
+						$fetch=$res->fetch_object();
+						//echo $fetch->status;
+						if($fetch->status=="Block")
+						{
+							$arr=array("status"=>"Unblock");
+							$res=$this->update_where('customer',$arr,$where);
+							if($res)
+							{
+								echo "<script>alert('Unblock Status Success');window.location='manage_customer';</script>";
+							}
+						}
+						else
+						{
+							$arr=array("status"=>"Block");
+							$res=$this->update_where('customer',$arr,$where);
+							if($res)
+							{
+								echo "<script>alert('Block Status Success');window.location='manage_customer';</script>";
+							}
+						}	
+					}
+					
+					
+					if(isset($_REQUEST['status_product']))
+					{
+						$id=$_REQUEST['status_product'];
+						$where=array("id"=>$id);
+						$res=$this->select_where('products',$where);
+						
+						$fetch=$res->fetch_object();
+						//echo $fetch->status;
+						if($fetch->status=="InStock")
+						{
+							$arr=array("status"=>"OutStock");
+							$res=$this->update_where('products',$arr,$where);
+							if($res)
+							{
+								echo "<script>alert('OutStock Status Success');window.location='manage_product';</script>";
+							}
+						}
+						else
+						{
+							$arr=array("status"=>"InStock");
+							$res=$this->update_where('products',$arr,$where);
+							if($res)
+							{
+								echo "<script>alert('InStock Status Success');window.location='manage_product';</script>";
+							}
+						}	
+					}
+				break;
 
 						
 				

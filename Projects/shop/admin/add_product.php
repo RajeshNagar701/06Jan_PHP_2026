@@ -25,9 +25,24 @@ include_once('header.php');
                
 				 <form action="" method="post"  enctype="multipart/form-data">
 					  <div class="form-group">
+						<label class="form-label">Select Categories</label>
+						<select name="cate_id" class="form-input">
+							<option value="">Select any One Categories</option>
+							<?php
+							foreach($categories as $data)
+							{
+							?>	
+								<option value="<?php echo $data->id?>"><?php echo $data->cate_name?></option>
+							<?php
+							}
+							?>
+						</select>
+					  </div>	
+					  <div class="form-group">
 						<label class="form-label">Product Name</label>
 						<input type="text" name="name" class="form-input">
 					  </div>
+					  
 					  <div class="form-group">
 						<label class="form-label">Main Price</label>
 						<input type="number" name="main_price" class="form-input">
