@@ -34,13 +34,12 @@ class control extends model   // step 2
 			
 			case '/contact_single_get': 	
 				
-				$id = $_GET['id'];
+				$id = $_GET['id']; // $data_arr = json_decode(file_get_contents("php://input"), true);
 				
 				$where=array("id"=>$id);
 				$chk=$this->select_where('contacts',$where);
 				$res=$chk->fetch_object();
-				$count=count($res); // data count
-				if($count > 0)
+				if($res)
 				{	
 					echo json_encode($res);
 				}
@@ -73,10 +72,10 @@ class control extends model   // step 2
 			
 			case '/contact_delete':	
 				
-				//$data = json_decode(file_get_contents("php://input"), true);
+				//$data = json_decode(file_get_contents("php://input"), true); // get from row body jason
 				//$id = $data["id"];
 				
-				$id = $_GET['id'];
+				$id = $_GET['id']; // http://localhost/students/06Jan_PHP_2026/Webservices/mvc_api_crud/contact_delete?id=3
 				$where=array("id"=>$id);
 				$res=$this->delete('contacts',$where);
 				if($res or die("Delete Query Failed"))
@@ -92,7 +91,7 @@ class control extends model   // step 2
 			case '/contact_patch':	
 				$data_arr = json_decode(file_get_contents("php://input"), true);
 				
-				$id = $data["id"];
+				$id = $data_arr["id"];
 				$name = $data_arr["name"]; 
 				$email = $data_arr["email"];
 				$mobile = $data_arr["mobile"];
@@ -570,14 +569,14 @@ class control extends model   // step 2
 				
 				$data_arr = json_decode(file_get_contents("php://input"), true);
 				
-				$id = $data["id"];
+				$id = $data_arr["id"];
 				$name = $data_arr["name"]; 
 				$email = $data_arr["email"];
 				$password = $data_arr["password"];
 				$mobile = $data_arr["mobile"];
 				$img = $data_arr["img"];
 				
-				$arr=array("name"=>$name,"email"=>$email,"password"=>$password,,"mobile"=>$mobile,"img"=>$img);
+				$arr=array("name"=>$name,"email"=>$email,"password"=>$password,"mobile"=>$mobile,"img"=>$img);
 				$where=array("id"=>$id);
 				
 				$res=$this->update_where('user',$arr,$where);
