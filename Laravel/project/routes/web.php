@@ -34,3 +34,19 @@ Route::get('/contact', function () {
 });
 
 //============ admin ==================================================================
+
+Route::get('/admin-login', function () {
+    return view('admin.admin_login');
+});
+
+Route::get('/dashboard', function () {
+    return view('admin.dashboard');
+});
+
+Route::get('/add_category', function () {
+    return view('admin.add_category');
+});
+
+Route::get('/manage_category', function () {
+    return view('admin.manage_category');
+});

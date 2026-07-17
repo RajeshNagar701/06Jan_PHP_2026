@@ -1,6 +1,5 @@
 @extends('website.layout.layout')
 
-
 @section('container')
   <div class="page-heading">
     <div class="container">
