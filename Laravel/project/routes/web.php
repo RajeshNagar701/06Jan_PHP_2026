@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,10 +31,8 @@ Route::get('/listing', function () {
     return view('website.listing');
 });
 
-Route::get('/contact', function () {
-    return view('website.contact');
-});
-
+Route::get('/contact', [ContactController::class, 'create']);
+Route::post('/submit-contact', [ContactController::class, 'store']);
 //============ admin ==================================================================
 
 Route::get('/admin-login', function () {
@@ -43,10 +43,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 });
 
-Route::get('/add_category', function () {
-    return view('admin.add_category');
-});
+Route::get('/add_category', [CategoryController::class, 'create']);
+Route::get('/manage_category', [CategoryController::class, 'show']);
 
-Route::get('/manage_category', function () {
-    return view('admin.manage_category');
-});
+Route::get('/manage_contact', [ContactController::class, 'show']);

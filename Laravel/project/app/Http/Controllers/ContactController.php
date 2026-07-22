@@ -20,11 +20,11 @@ class ContactController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        return view('website.contact');
     }
 
     /**
@@ -35,7 +35,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new contact();
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->coment = $request->coment;
+
+        $data->save();
+        return redirect()->back();
     }
 
     /**
@@ -46,7 +52,8 @@ class ContactController extends Controller
      */
     public function show(contact $contact)
     {
-        //
+        $contacts = contact::all();
+        return view('admin.manage_contacts', compact('contacts'));
     }
 
     /**

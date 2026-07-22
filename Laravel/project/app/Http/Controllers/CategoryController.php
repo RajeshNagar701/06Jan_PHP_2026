@@ -24,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.add_category');
     }
 
     /**
@@ -46,7 +46,7 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        //
+        return view('admin.manage_category');
     }
 
     /**
