@@ -71,7 +71,7 @@ function active($currect_page){
               <li><a href="/category" class="<?php active('category')?>">Category</a></li>
               <li><a href="/listing" class="<?php active('listing')?>">Listing</a></li>
               <li><a href="/contact" class="<?php active('contact')?>">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="#"><i class="fa fa-plus"></i> Add Your Listing</a></div></li> 
+              <li><div class="main-white-button"><a href="signup"><i class="fa fa-plus"></i> Signup </a></div></li> 
             </ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>

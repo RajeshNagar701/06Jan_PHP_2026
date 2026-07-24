@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,8 +32,13 @@ Route::get('/listing', function () {
     return view('website.listing');
 });
 
+Route::get('/signup', [CustomerController::class, 'create']);
+Route::post('/submit-customer', [CustomerController::class, 'store']);
+
+
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/submit-contact', [ContactController::class, 'store']);
+
 //============ admin ==================================================================
 
 Route::get('/admin-login', function () {
@@ -44,6 +50,13 @@ Route::get('/dashboard', function () {
 });
 
 Route::get('/add_category', [CategoryController::class, 'create']);
+Route::post('/submit-category', [CategoryController::class, 'store']);
+
 Route::get('/manage_category', [CategoryController::class, 'show']);
+Route::get('/delete_category/{id}', [CategoryController::class, 'destroy']);
 
 Route::get('/manage_contact', [ContactController::class, 'show']);
+Route::get('/delete_contact/{id}', [ContactController::class, 'destroy']);
+
+Route::get('/manage_customer', [CustomerController::class, 'show']);
+Route::get('/delete_customer/{id}', [CustomerController::class, 'destroy']);

@@ -28,24 +28,17 @@
                         </tr>
                     </thead>
                     <tbody>
+					@foreach($categories as $category)
                         <tr>
-                            <td>1</td>
-                            <td>Premium Plan</td>
-                            <td>Jan 15, 2025</td>
+                            <td>{{$category->id}}</td>
+                            <td>{{$category->cate_name}}</td>
+                            <td><img width="50px" src="{{url('admin/upload/category/'.$category->image)}}"</td>
                             <td>
-                                <a href="">Delete</a>
+                                <a href="{{url('/delete_category/'.$category->id)}}">Delete</a>
                                 <a href="">Edit</a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Premium Plan</td>
-                            <td>Jan 15, 2025</td>
-                            <td>
-                                <a href="">Delete</a>
-                                <a href="">Edit</a>
-                            </td>
-                        </tr>
+                    @endforeach  
 
                     </tbody>
                 </table>

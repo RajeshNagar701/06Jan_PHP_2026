@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\customer;
 use Illuminate\Http\Request;
+use Hash;  // for enc password
+
 
 class CustomerController extends Controller
 {
@@ -24,7 +26,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return view('website.signup');
     }
 
     /**
@@ -35,7 +37,22 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $customer=new customer();
+		$customer->name=$request->name;
+		$customer->email=$request->email;
+		$customer->password=Hash::make($request->password);
+		$customer->gender=$request->gender;
+		$customer->hobby=implode(",",$request->hobby);
+		$customer->mobile=$request->mobile;
+		
+		// img upload
+		$image=$request->file('image');
+		$filename=time().'_img.'.$request->file('image')->getClientOriginalExtension(); // 121545454_img.jpg
+		$image->move('admin/upload/customer',$filename); // upload file in public 
+		
+		$customer->image=$filename;
+		$customer->save(); // insert function
+		return redirect()->back();
     }
 
     /**
@@ -46,7 +63,8 @@ class CustomerController extends Controller
      */
     public function show(customer $customer)
     {
-        //
+        $customers=customer::all();
+        return view('admin.manage_customer',compact('customers'));
     }
 
     /**
@@ -78,8 +96,13 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(customer $customer)
+    public function destroy(customer $customer,$id)
     {
-        //
+        $customer=customer::find($id);
+		$image=$customer->image;
+		unlink('admin/upload/customer/'.$image);
+		
+		$customer->delete();
+		return redirect()->back();
     }
 }

@@ -19,7 +19,8 @@
                 </div>
             </div>
             <div class="table-wrapper">
-                <form action="" method="post">
+                <form action="{{url('/submit-category')}}" enctype="multipart/form-data" method="post">
+					@csrf
                     <div class="settings-section">
                         <h3 class="settings-section-title">Add Category</h3>
                         <div class="form-grid">
@@ -34,7 +35,7 @@
                         </div>
                     </div>
                     <div class="btn-group">
-                        <button type="submit" class="btn btn-primary" style="width: auto;">Save Changes</button>
+                        <button type="submit" name="submit" class="btn btn-primary" style="width: auto;">Save Changes</button>
                     </div>
                 </form>
             </div>

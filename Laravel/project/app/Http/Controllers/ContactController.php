@@ -35,13 +35,13 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new contact();
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->coment = $request->coment;
+        $contact = new contact();
+        $contact->name = $request->name; // $name=$_REQUEST['name'];
+        $contact->email = $request->email;
+        $contact->coment = $request->coment;
 
-        $data->save();
-        return redirect()->back();
+        $contact->save();
+        return redirect()->back(); // usi page vapis redirect karenga
     }
 
     /**
@@ -52,7 +52,7 @@ class ContactController extends Controller
      */
     public function show(contact $contact)
     {
-        $contacts = contact::all();
+        $contacts = contact::all();  // select * from contact & data fetch
         return view('admin.manage_contacts', compact('contacts'));
     }
 
@@ -85,8 +85,10 @@ class ContactController extends Controller
      * @param  \App\Models\contact  $contact
      * @return \Illuminate\Http\Response
      */
-    public function destroy(contact $contact)
+    public function destroy(contact $contact,$id)
     {
-        //
+        $contact=contact::find($id);
+		$contact->delete();
+		return redirect()->back();
     }
 }

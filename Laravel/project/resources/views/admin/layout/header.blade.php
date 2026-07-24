@@ -167,6 +167,11 @@
                                 Contact
                             </a>
                         </li>
+						<li class="nav-item">
+                            <a href="manage_customer" class="nav-link">
+                                Customer
+                            </a>
+                        </li>
 
                     </ul>
                 </li>

@@ -35,8 +35,19 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $category=new category();
+		$category->cate_name=$request->cate_name;
+		
+		// img upload
+		$image=$request->file('image');
+		$filename=time().'_img.'.$request->file('image')->getClientOriginalExtension(); // 121545454_img.jpg
+		$image->move('admin/upload/category',$filename); // upload file in public 
+		
+		$category->image=$filename;
+		$category->save(); // insert function
+		return redirect()->back();
+		
+	}
 
     /**
      * Display the specified resource.
@@ -46,7 +57,8 @@ class CategoryController extends Controller
      */
     public function show(category $category)
     {
-        return view('admin.manage_category');
+		$categories=category::all();
+        return view('admin.manage_category',compact('categories'));
     }
 
     /**
@@ -78,8 +90,13 @@ class CategoryController extends Controller
      * @param  \App\Models\category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(category $category)
+    public function destroy(category $category,$id)
     {
-        //
+        $category=category::find($id);
+		$image=$category->image;
+		unlink('admin/upload/category/'.$image);
+		
+		$category->delete();
+		return redirect()->back();
     }
 }
