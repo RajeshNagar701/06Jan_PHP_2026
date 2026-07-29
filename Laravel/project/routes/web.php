@@ -35,6 +35,11 @@ Route::get('/listing', function () {
 Route::get('/signup', [CustomerController::class, 'create']);
 Route::post('/submit-customer', [CustomerController::class, 'store']);
 
+Route::get('/login', [CustomerController::class, 'login']);
+Route::post('/submit-auth', [CustomerController::class, 'auth']);
+
+Route::get('/user_logout', [CustomerController::class, 'user_logout']);
+
 
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/submit-contact', [ContactController::class, 'store']);

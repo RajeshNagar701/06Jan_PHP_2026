@@ -71,8 +71,12 @@ function active($currect_page){
               <li><a href="/category" class="<?php active('category')?>">Category</a></li>
               <li><a href="/listing" class="<?php active('listing')?>">Listing</a></li>
               <li><a href="/contact" class="<?php active('contact')?>">Contact Us</a></li> 
-              <li><div class="main-white-button"><a href="signup"><i class="fa fa-plus"></i> Signup </a></div></li> 
-            </ul>        
+			  @if(session('id'))
+				<li><div class="main-white-button"><a href="user_logout"><i class="fa fa-user"></i> Logout </a></div></li> 
+			  @else
+				<li><div class="main-white-button"><a href="signup"><i class="fa fa-plus"></i> Signup </a></div></li> 
+			  @endif		
+			</ul>        
             <a class='menu-trigger'>
                 <span>Menu</span>
             </a>

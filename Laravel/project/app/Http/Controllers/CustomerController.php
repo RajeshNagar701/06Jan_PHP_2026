@@ -14,10 +14,41 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function login()
     {
-        //
+         return view('website.login');
     }
+	
+	public function auth(Request $request)
+    {
+        $customer=customer::where('email',$request->email)->first();  // ->get() arr data ->first() single data
+		if(!empty($customer))
+		{
+			if(Hash::check($request->password, $customer->password))
+			{
+				session()->put('id',$customer->id); 
+				session()->put('name',$customer->name);
+				return redirect('/');		
+			}
+			else
+			{
+				return redirect()->back()->with('message', 'Login failed due to Wrong Creadenncial');
+			}
+		}
+		else
+		{
+			return redirect()->back()->with('message', 'Login failed due to Customer does not exist');
+		}	
+	}
+	
+	public function user_logout()
+    {
+		session()->pull('id');  // session delete
+		session()->pull('name');
+        return redirect('/');		
+    }
+
+	
 
     /**
      * Show the form for creating a new resource.
