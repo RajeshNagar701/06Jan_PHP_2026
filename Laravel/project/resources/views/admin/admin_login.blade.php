@@ -40,16 +40,21 @@
                     <h1 class="login-title">Welcome Back</h1>
                     <p class="login-subtitle">Sign in to continue to GlassDash</p>
                 </div>
-
-                <form data-validate data-redirect="index.html">
+				@if(session('message'))
+				  <div class="alert alert-danger">
+					  <strong>Failed!</strong> {{ session('message')}}
+				  </div>
+				 @endif
+                <form method="post" action="{{url('/admin-auth')}}" >
+					@csrf
                     <div class="form-group">
                         <label class="form-label" for="email">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
+                        <input name="email" type="email" id="email" class="form-input" placeholder="Enter your email" required>
                     </div>
 
                     <div class="form-group">
                         <label class="form-label" for="password">Password</label>
-                        <input type="password" id="password" class="form-input" placeholder="Enter your password" required>
+                        <input name="password" type="password" id="password" class="form-input" placeholder="Enter your password" required>
                     </div>
 
                     <div class="form-row">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,15 +41,21 @@ Route::post('/submit-auth', [CustomerController::class, 'auth']);
 
 Route::get('/user_logout', [CustomerController::class, 'user_logout']);
 
+Route::get('/user_profile', [CustomerController::class, 'user_profile']);
+Route::get('/user_profile/{id}', [CustomerController::class, 'edit']);
 
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/submit-contact', [ContactController::class, 'store']);
 
 //============ admin ==================================================================
 
-Route::get('/admin-login', function () {
-    return view('admin.admin_login');
-});
+
+Route::get('/admin-login', [AdminController::class, 'login']);
+Route::post('/admin-auth', [AdminController::class, 'auth']);
+
+Route::get('/admin_logout', [AdminController::class, 'admin_logout']);
+
+
 
 Route::get('/dashboard', function () {
     return view('admin.dashboard');

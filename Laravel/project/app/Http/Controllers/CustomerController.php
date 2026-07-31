@@ -45,7 +45,7 @@ class CustomerController extends Controller
     {
 		session()->pull('id');  // session delete
 		session()->pull('name');
-        return redirect('/');		
+        return redirect('/admin-login');		
     }
 
 	
@@ -104,9 +104,18 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function edit(customer $customer)
+	 
+	 
+	public function user_profile(customer $customer)
     {
-        //
+        $customer=customer::where('id',session('id'))->first(); // first get only 1 data in string
+        return view('website.user_profile',compact('customer'));
+    } 
+	 
+    public function edit(customer $customer,$id)
+    {
+        $edit_user=customer::find($id);  // find bu url id
+		return view('website.edit_profile',compact('edit_user'));
     }
 
     /**
