@@ -31,6 +31,11 @@
 				<div class="container">
 					<div class="card shadow-sm" style="max-width: 80%; margin: 0 auto;">
 						<div class="row g-0">
+							@if(session('message'))
+							  <div class="alert alert-success">
+								  <strong>Success!</strong> {{ session('message')}}
+							  </div>
+							 @endif
 							<div class="col-md-4 p-3 text-center">
 								<img src="{{url('admin/upload/customer/'.$customer->image)}}" class="rounded-circle img-thumbnail" alt="Profile Picture">
 								<div class="mt-2">
@@ -46,7 +51,7 @@
 										</a>
 									</h5>
 									<p class="card-text text-muted">
-										<i class="fas fa-briefcase"></i> 
+										
 										Id : {{$customer->id}}
 									</p>
 									<p class="card-text">

@@ -43,6 +43,7 @@ Route::get('/user_logout', [CustomerController::class, 'user_logout']);
 
 Route::get('/user_profile', [CustomerController::class, 'user_profile']);
 Route::get('/user_profile/{id}', [CustomerController::class, 'edit']);
+Route::post('/update-customer/{id}', [CustomerController::class, 'update']);
 
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/submit-contact', [ContactController::class, 'store']);
@@ -72,3 +73,4 @@ Route::get('/delete_contact/{id}', [ContactController::class, 'destroy']);
 
 Route::get('/manage_customer', [CustomerController::class, 'show']);
 Route::get('/delete_customer/{id}', [CustomerController::class, 'destroy']);
+Route::get('/status_customer/{id}', [CustomerController::class, 'status_customer']);

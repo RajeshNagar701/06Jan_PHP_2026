@@ -18,6 +18,11 @@
                 </div>
             </div>
             <div class="table-wrapper">
+				@if(session('message'))
+				  <div class="alert alert-warning">
+					  <strong>Success!</strong> {{ session('message')}}
+				  </div>
+				 @endif
                 <table class="data-table">
                     <thead>
                         <tr>
@@ -42,8 +47,8 @@
 								<td>{{ $customer->hobby }}</td>
 								<td>{{ $customer->mobile }}</td>
                                 <td>
-                                    <a href="{{url('/delete_customer/'.$customer->id)}}">Delete</a>
-                                    <a href="">Edit</a>
+                                    <a class="btn" href="{{url('/delete_customer/'.$customer->id)}}">Delete</a>
+                                    <a class="btn" href="{{url('/status_customer/'.$customer->id)}}">{{$customer->status}}</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -125,9 +125,29 @@ class CustomerController extends Controller
      * @param  \App\Models\customer  $customer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, customer $customer)
+    public function update(Request $request, customer $customer,$id)
     {
-        //
+        $customer=customer::find($id);
+		$customer->name=$request->name;
+		$customer->email=$request->email;
+		$customer->gender=$request->gender;
+		$customer->hobby=implode(",",$request->hobby);
+		$customer->mobile=$request->mobile;
+		
+		// img upload
+		if($request->hasFile('image')) 
+		{
+			$old_image=$customer->image;
+			unlink('admin/upload/customer/'.$old_image);
+			
+			$image=$request->file('image');
+			$filename=time().'_img.'.$request->file('image')->getClientOriginalExtension(); // 121545454_img.jpg
+			$image->move('admin/upload/customer',$filename); // upload file in public 
+			$customer->image=$filename;
+		}
+		
+		$customer->update(); // update function
+		return redirect('/user_profile')->with('message', 'Updated Success');;
     }
 
     /**
@@ -143,6 +163,24 @@ class CustomerController extends Controller
 		unlink('admin/upload/customer/'.$image);
 		
 		$customer->delete();
-		return redirect()->back();
+		return redirect()->back()->with('message', 'Deleted Success');;
     }
+	
+	public function status_customer(customer $customer,$id)
+    {
+        $customer=customer::find($id);
+		$status=$customer->status;
+		if($status=="Block")
+		{
+			$customer->status="Unblock";
+		}
+		else
+		{
+			$customer->status="Block";
+		}	
+		
+		$customer->update();
+		return redirect()->back()->with('message', 'Updated Success');
+    }
+	
 }
