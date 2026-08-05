@@ -21,6 +21,11 @@ class CustomerController extends Controller
 	
 	public function auth(Request $request)
     {
+		$validated = $request->validate([
+			'email'=> 'required|email',
+			'password'=> 'required'
+		]);
+		
         $customer=customer::where('email',$request->email)->first();  // ->get() arr data ->first() single data
 		if(!empty($customer))
 		{
@@ -68,6 +73,12 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+		$validated = $request->validate([
+			'name'=> 'required|alpha:ascii|max:255',
+			'email'=> 'required|unique:customers',
+		]);
+		
+		
         $customer=new customer();
 		$customer->name=$request->name;
 		$customer->email=$request->email;

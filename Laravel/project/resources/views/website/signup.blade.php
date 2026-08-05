@@ -24,29 +24,36 @@
             <div class="row">
               
               <div class="col-lg-12 align-self-center">
-                <form id="contact" action="{{ url('/submit-customer') }}" enctype="multipart/form-data" method="post">
+                
+				
+				<form id="contact" action="{{ url('/submit-customer') }}" enctype="multipart/form-data" method="post">
                   @csrf
                   <div class="row">
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                      </fieldset>
+                        <input type="name" name="name" value="{{old('name')}}" id="name" placeholder="Name" autocomplete="on">
+						@error('name')
+							<div class="alert alert-danger">{{ $message }}</div>
+						@enderror
+					  </fieldset>
                     </div>
 
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
-                          required="">
+                        <input type="text" name="email" value="{{old('email')}}" id="email" placeholder="Your Email">
+						@error('email')
+							<div class="alert alert-danger">{{ $message }}</div>
+						@enderror
                       </fieldset>
                     </div>
 					<div class="col-lg-12">
                       <fieldset>
-                        <input type="password" name="password" id="name" placeholder="Password" autocomplete="on" required>
+                        <input type="password" name="password" id="name" placeholder="Password" autocomplete="on">
                       </fieldset>
                     </div>
 					<div class="col-lg-12">
                       <fieldset>
-                        <input type="number" name="mobile" id="name" placeholder="Mobile" autocomplete="on" required>
+                        <input type="number" name="mobile" id="name" placeholder="Mobile" autocomplete="on">
                       </fieldset>
                     </div>
 					<div class="col-lg-12">
@@ -67,7 +74,7 @@
 					
 					<div class="col-lg-12">
                       <fieldset>
-                        <input type="file" name="image" placeholder="Image" autocomplete="on" required>
+                        <input type="file" name="image" placeholder="Image" autocomplete="on">
                       </fieldset>
                     </div>
                     

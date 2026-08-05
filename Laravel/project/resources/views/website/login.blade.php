@@ -26,6 +26,11 @@
 			 
               <div class="col-lg-12 align-self-center">
                 
+				@error('name')
+					<div class="alert alert-danger">{{ $message }}</div>
+				@enderror
+
+				
 				 @if(session('message'))
 				  <div class="alert alert-danger">
 					  <strong>Failed!</strong> {{ session('message')}}
@@ -38,14 +43,20 @@
                    
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
-                          required="">
-                      </fieldset>
+                        <input type="text" name="email" id="email" placeholder="Your Email">
+						@error('email')
+							<div class="alert alert-danger">{{ $message }}</div>
+						@enderror
+					      
+					  </fieldset>
                     </div>
 					<div class="col-lg-12">
                       <fieldset>
-                        <input type="password" name="password" id="name" placeholder="Password" autocomplete="on" required>
-                      </fieldset>
+                        <input type="password" name="password" id="name" placeholder="Password" autocomplete="on">
+						@error('password')
+							<div class="alert alert-danger">{{ $message }}</div>
+						@enderror
+					  </fieldset>
                     </div>
 					
                     

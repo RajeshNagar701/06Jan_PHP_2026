@@ -30,26 +30,35 @@
                 </div>
               </div>
               <div class="col-lg-6 align-self-center">
+				@if ($errors->any())
+					<div class="alert alert-danger">
+						<ul>
+							@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+							@endforeach
+						</ul>
+					</div>
+				@endif
+
+			  
                 <form id="contact" action="{{ url('/submit-contact') }}" method="post">
                   @csrf
                   <div class="row">
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="name" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                        <input type="name" name="name" value="{{old('name')}}" id="name" placeholder="Name" autocomplete="on">
                       </fieldset>
                     </div>
 
                     <div class="col-lg-12">
                       <fieldset>
-                        <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email"
-                          required="">
+                        <input type="text" name="email" id="email" value="{{old('email')}}"  placeholder="Your Email">
                       </fieldset>
                     </div>
 
                     <div class="col-lg-12">
                       <fieldset>
-                        <textarea name="coment" type="text" class="form-control" id="message" placeholder="Message"
-                          required=""></textarea>
+                        <textarea name="coment" type="text" value="{{old('coment')}}" class="form-control" id="message" placeholder="Message"></textarea>
                       </fieldset>
                     </div>
                     <div class="col-lg-12">
