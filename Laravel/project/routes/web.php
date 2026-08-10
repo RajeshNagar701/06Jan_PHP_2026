@@ -33,17 +33,16 @@ Route::get('/listing', function () {
     return view('website.listing');
 });
 
-Route::get('/signup', [CustomerController::class, 'create']);
-Route::post('/submit-customer', [CustomerController::class, 'store']);
+Route::get('/signup', [CustomerController::class, 'create'])->middleware('web_before');
+Route::post('/submit-customer', [CustomerController::class, 'store'])->middleware('web_before');
 
-Route::get('/login', [CustomerController::class, 'login']);
-Route::post('/submit-auth', [CustomerController::class, 'auth']);
+Route::get('/login', [CustomerController::class, 'login'])->middleware('web_before');
+Route::post('/submit-auth', [CustomerController::class, 'auth'])->middleware('web_before');
 
-Route::get('/user_logout', [CustomerController::class, 'user_logout']);
-
-Route::get('/user_profile', [CustomerController::class, 'user_profile']);
-Route::get('/user_profile/{id}', [CustomerController::class, 'edit']);
-Route::post('/update-customer/{id}', [CustomerController::class, 'update']);
+Route::get('/user_logout', [CustomerController::class, 'user_logout'])->middleware('web_after');
+Route::get('/user_profile', [CustomerController::class, 'user_profile'])->middleware('web_after');
+Route::get('/user_profile/{id}', [CustomerController::class, 'edit'])->middleware('web_after');
+Route::post('/update-customer/{id}', [CustomerController::class, 'update'])->middleware('web_after');
 
 Route::get('/contact', [ContactController::class, 'create']);
 Route::post('/submit-contact', [ContactController::class, 'store']);
@@ -51,26 +50,31 @@ Route::post('/submit-contact', [ContactController::class, 'store']);
 //============ admin ==================================================================
 
 
-Route::get('/admin-login', [AdminController::class, 'login']);
-Route::post('/admin-auth', [AdminController::class, 'auth']);
 
-Route::get('/admin_logout', [AdminController::class, 'admin_logout']);
+Route::group(['middleware'=>['admin_before']],function(){
+	
+	Route::get('/admin-login', [AdminController::class, 'login']);
+	Route::post('/admin-auth', [AdminController::class, 'auth']);
 
-
-
-Route::get('/dashboard', function () {
-    return view('admin.dashboard');
 });
 
-Route::get('/add_category', [CategoryController::class, 'create']);
-Route::post('/submit-category', [CategoryController::class, 'store']);
+Route::group(['middleware'=>['admin_after']],function(){
 
-Route::get('/manage_category', [CategoryController::class, 'show']);
-Route::get('/delete_category/{id}', [CategoryController::class, 'destroy']);
+	Route::get('/admin_logout', [AdminController::class, 'admin_logout']);
+	Route::get('/dashboard', function () {
+		return view('admin.dashboard');
+	});
+	Route::get('/add_category', [CategoryController::class, 'create']);
+	Route::post('/submit-category', [CategoryController::class, 'store']);
 
-Route::get('/manage_contact', [ContactController::class, 'show']);
-Route::get('/delete_contact/{id}', [ContactController::class, 'destroy']);
+	Route::get('/manage_category', [CategoryController::class, 'show']);
+	Route::get('/delete_category/{id}', [CategoryController::class, 'destroy']);
 
-Route::get('/manage_customer', [CustomerController::class, 'show']);
-Route::get('/delete_customer/{id}', [CustomerController::class, 'destroy']);
-Route::get('/status_customer/{id}', [CustomerController::class, 'status_customer']);
+	Route::get('/manage_contact', [ContactController::class, 'show']);
+	Route::get('/delete_contact/{id}', [ContactController::class, 'destroy']);
+
+	Route::get('/manage_customer', [CustomerController::class, 'show']);
+	Route::get('/delete_customer/{id}', [CustomerController::class, 'destroy']);
+	Route::get('/status_customer/{id}', [CustomerController::class, 'status_customer']);
+	
+});
