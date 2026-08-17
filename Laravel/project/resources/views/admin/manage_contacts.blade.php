@@ -33,6 +33,7 @@
                             <tr>
                                 <td>{{ $contact->id }}</td>
                                 <td>{{ $contact->name }}</td>
+								<td>{{custome_date($contact->created_at,'d/m/Y')}}</td>
                                 <td>{{ $contact->email }}</td>
                                 <td>{{ $contact->coment }}</td>
                                 <td>
@@ -41,9 +42,15 @@
                                 </td>
                             </tr>
                         @endforeach
-
+						<style>
+						.w-5 {
+							Display: none;
+							width: 30px;
+						}
+						</style>
                     </tbody>
                 </table>
+				<span>{{$contacts->links()}}</span>
             </div>
         </div>
     </section>

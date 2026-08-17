@@ -31,6 +31,7 @@ https://templatemo.com/tm-564-plot-listing
   </head>
 
 <body>
+@include('sweetalert::alert')
 
 <?php
 function active($currect_page){

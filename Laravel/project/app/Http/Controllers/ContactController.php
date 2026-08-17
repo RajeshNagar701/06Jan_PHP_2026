@@ -59,7 +59,8 @@ class ContactController extends Controller
      */
     public function show(contact $contact)
     {
-        $contacts = contact::all();  // select * from contact & data fetch
+        $contacts = contact::paginate(10);  // select * from contact & data fetch
+		//getdata($contacts);
         return view('admin.manage_contacts', compact('contacts'));
     }
 

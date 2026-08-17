@@ -14,6 +14,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+		
+		$this->call([
+			contactSeeder::class, // register seeder here
+			
+		]);
+		
+		//php artisan db:seed
+		
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

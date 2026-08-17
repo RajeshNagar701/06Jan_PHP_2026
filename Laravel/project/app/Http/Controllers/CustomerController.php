@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\customer;
 use Illuminate\Http\Request;
 use Hash;  // for enc password
-
+//use Alert;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CustomerController extends Controller
 {
@@ -33,16 +34,19 @@ class CustomerController extends Controller
 			{
 				session()->put('id',$customer->id); 
 				session()->put('name',$customer->name);
+				Alert::success('Congrats', 'You\'ve Successfully Registered');
 				return redirect('/');		
 			}
 			else
 			{
-				return redirect()->back()->with('message', 'Login failed due to Wrong Creadenncial');
+				Alert::error('Failed', 'Login failed due to Wrong Creadenncial');
+				return redirect()->back();
 			}
 		}
 		else
 		{
-			return redirect()->back()->with('message', 'Login failed due to Customer does not exist');
+			Alert::error('Failed', 'Login failed due to Customer does not exist');
+			return redirect()->back();
 		}	
 	}
 	
@@ -50,7 +54,8 @@ class CustomerController extends Controller
     {
 		session()->pull('id');  // session delete
 		session()->pull('name');
-        return redirect('/admin-login');		
+		Alert::success('Congrats', 'You\'ve Successfully Logout');	
+        return redirect('/');		
     }
 
 	
@@ -94,6 +99,7 @@ class CustomerController extends Controller
 		
 		$customer->image=$filename;
 		$customer->save(); // insert function
+		Alert::success('Congrats', 'You\'ve Successfully Signup');	
 		return redirect()->back();
     }
 
@@ -158,7 +164,8 @@ class CustomerController extends Controller
 		}
 		
 		$customer->update(); // update function
-		return redirect('/user_profile')->with('message', 'Updated Success');;
+		Alert::success('Congrats', 'You\'ve Successfully Updated');	
+		return redirect('/user_profile');
     }
 
     /**
