@@ -72,7 +72,7 @@ function sum()
 {
 	return 5+7;
 }
-sum();
+$ans=sum();
 */
 
 

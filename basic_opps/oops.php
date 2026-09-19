@@ -89,7 +89,7 @@ simple();
 
 
 class demo{
-	public $a=10;  // data members
+	public $a=10;  // data members public private protected
 	public $b=20;
 
 	function sum(){   // data function
@@ -102,7 +102,6 @@ class demo{
 	}
 }
 $obj=new demo;    // instance of class means object 
-
 $obj->sum();
 $obj->multi();
 
